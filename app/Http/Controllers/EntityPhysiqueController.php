@@ -117,9 +117,11 @@ class EntityPhysiqueController extends Controller
     public function showDetails(int $id)
     {
         $entityphysique = DB::table('entitephysique')
-            ->where('id_entite_physique', '=', $id)->get();
+            ->where('id_entite_physique', '=', $id)
+            ->get();
         $contrats = DB::table('contrat')
-            ->where('id_entite_physique', '=', $id)->get();
+            ->where('id_entite_physique', '=', $id)
+            ->get();
         $contactRoles = DB::table('contactRole')
             ->where('id_entite_physique', '=', $id)
             ->join('contact', 'contactRole.id_contact', '=', 'contact.id_contact')

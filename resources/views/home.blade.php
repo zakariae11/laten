@@ -16,6 +16,11 @@
             <button type="submit" class="btn btn-primary">Entity Physique</button>
         </a>
     </div>
+    <div>
+        <a href="{{ route('clientInfos') }}">
+            <button type="submit" class="btn btn-success">Client Informations</button>
+        </a>
+    </div>
 </div>
 <img src="laten.png" class="center-img">
 

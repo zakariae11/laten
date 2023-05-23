@@ -32,5 +32,5 @@ class ContratAcController extends Controller
             ->whereRaw('TIMESTAMPDIFF(DAY, c1.date_demarrage, NOW()) > TIMESTAMPDIFF(DAY, c2.date_demarrage, NOW())')
             ->get();
         return view('contrat.removeContrat', ['contrats' => $contrats]);
-    }
+    } 
 }

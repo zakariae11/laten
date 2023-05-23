@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntityPhysiqueController;
 use App\Http\Controllers\EntitySocialeController;
 use App\Http\Controllers\ContratAcController;
+use App\Http\Controllers\ClientInformationsController;
 
 Route::get('/', function () {
     return view('home');
@@ -39,3 +40,7 @@ Route::get('/entite-physique/{id}', [EntityPhysiqueController::class, 'showDetai
 //Lister Contrat AC
 Route::get('/listercontrat', [ContratAcController::class, 'listerContratAC'])->name('contratAC');
 Route::get('/suppcontrat', [ContratAcController::class, 'suppContrat']);
+
+//Client Informations
+Route::get('/clientInfos', [ClientInformationsController::class, 'clientInformations'])->name('clientInfos');
+Route::post('/increaseRemise', [ClientInformationsController::class, 'increaseRemise'])->name('increaseRemise');
