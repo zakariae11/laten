@@ -1,6 +1,6 @@
 create database laten1;
 
-use laten;
+use laten1;
 CREATE TABLE entitePhysique (
     id_entite_physique INT PRIMARY KEY auto_increment,
     id_entite_social INT,
@@ -63,7 +63,6 @@ CREATE TABLE article (
 );
 
 
-insertion:
 INSERT INTO entitySociale(raison_social, numero_registre, patente, adresse, code_postal)
 VALUES
 ('Societe A', 123456, 'PAT123', 'Rue A, Ville A', 11111),
@@ -144,10 +143,10 @@ INSERT INTO article (id_contrat, libelle, montant, remise, devise, date_creation
 ALTER TABLE article
 ADD prix_facture DECIMAL(10,1);
 
+set sql_safe_updates = 0;
 UPDATE article 
 set prix_facture = montant - remise;
 
-Trigger:
 drop TRIGGER if EXISTS delete_cascading;
 use laten;
 drop TRIGGER if EXISTS delete_cascading;

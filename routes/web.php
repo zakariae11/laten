@@ -43,4 +43,3 @@ Route::get('/suppcontrat', [ContratAcController::class, 'suppContrat']);
 
 //Client Informations
 Route::get('/clientInfos', [ClientInformationsController::class, 'clientInformations'])->name('clientInfos');
-Route::post('/increaseRemise', [ClientInformationsController::class, 'increaseRemise'])->name('increaseRemise');

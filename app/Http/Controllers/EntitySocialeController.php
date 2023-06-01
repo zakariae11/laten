@@ -15,6 +15,7 @@ class EntitySocialeController extends Controller
 
 
         $entitysociale = DB::table('entitysociale')->get();
+        $entitysociale = DB::select('select * from entitysociale');
 
         return view('entitySociale.index', ['entitysociale' => $entitysociale]);
     }
