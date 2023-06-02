@@ -102,18 +102,18 @@ VALUES
 (3, 'Entité Physique 9', 1009, 'Adresse 9', 30000, 'AC', '2022-01-09'),
 (4, 'Entité Physique 10', 1010, 'Adresse 10', 40000, 'KO', '2022-01-10');
 
-INSERT INTO contrat (id_entite_physique, numero_contrat, statut_contrat, version_contrat, type_contrat, frequence_facturation, date_creation, date_demarrage) 
+INSERT INTO contrat (numero_contrat, statut_contrat, version_contrat, type_contrat, frequence_facturation, date_creation, date_demarrage) 
 VALUES 
-(1, 123, 'AC', 1, 'POSTPAID', 'ANNU', '2022-01-01', '2022-02-01'),
-(2, 456, 'AC', 1, 'PREPAID', 'MENS', '2022-01-02', '2022-03-01'),
-(3, 789, 'KO', 1, 'POSTPAID', 'ANNU', '2022-01-03', '2022-04-01'),
-(4, 234, 'AC', 1, 'PREPAID', 'MENS', '2022-01-04', '2022-05-01'),
-(5, 567, 'AC', 1, 'POSTPAID', 'ANNU', '2022-01-05', '2022-06-01'),
-(6, 890, 'KO', 1, 'PREPAID', 'MENS', '2022-01-06', '2022-07-01'),
-(7, 345, 'AC', 1, 'POSTPAID', 'ANNU', '2022-01-07', '2022-08-01'),
-(8, 678, 'AC', 1, 'PREPAID', 'MENS', '2022-01-08', '2022-09-01'),
-(9, 1234, 'KO', 1, 'POSTPAID', 'ANNU', '2022-01-09', '2022-10-01'),
-(10, 5678, 'AC', 1, 'PREPAID', 'MENS', '2022-01-10', '2022-11-01');
+( 123, 'AC', 1, 'POSTPAID', 'ANNU', '2022-01-01', '2022-02-01'),
+( 123, 'AC', 2, 'PREPAID', 'MENS', '2022-01-02', '2022-03-01'),
+( 789, 'KO', 1, 'POSTPAID', 'ANNU', '2022-01-03', '2022-04-01'),
+( 234, 'AC', 2, 'PREPAID', 'MENS', '2022-01-04', '2022-05-01'),
+( 234, 'KO', 3, 'POSTPAID', 'ANNU', '2022-01-05', '2022-06-01'),
+( 890, 'KO', 1, 'PREPAID', 'MENS', '2022-01-06', '2022-07-01'),
+( 345, 'AC', 1, 'POSTPAID', 'ANNU', '2022-01-07', '2022-08-01'),
+( 678, 'AC', 1, 'PREPAID', 'MENS', '2022-01-08', '2022-09-01'),
+( 5678, 'AC', 9, 'POSTPAID', 'ANNU', '2022-01-09', '2022-10-01'),
+( 5678, 'AC', 8, 'PREPAID', 'MENS', '2022-01-10', '2022-11-01');
 
 INSERT INTO contactRole (id_entite_physique, id_contact, role)
 VALUES 
@@ -148,7 +148,6 @@ UPDATE article
 set prix_facture = montant - remise;
 
 drop TRIGGER if EXISTS delete_cascading;
-use laten;
 drop TRIGGER if EXISTS delete_cascading;
 DELIMITER //
 CREATE TRIGGER delete_cascading before DELETE
