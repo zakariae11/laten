@@ -102,7 +102,7 @@ VALUES
 (3, 'Entité Physique 9', 1009, 'Adresse 9', 30000, 'AC', '2022-01-09'),
 (4, 'Entité Physique 10', 1010, 'Adresse 10', 40000, 'KO', '2022-01-10');
 
-INSERT INTO contrat (id_entite_physique, numero_contrat, statut_contrat, version_contrat, type_contrat, frequence_facturation, date_creation, date_demarrage) 
+(id_entite_physique, numero_contrat, statut_contrat, version_contrat, type_contrat, frequence_facturation, date_creation, date_demarrage) 
 VALUES 
 (1, 'Entité Physique 1', '1001', 'Adresse 1', '10000', 'AC', '2022-01-01')
 (1, 'Entité Physique 2', '1002', 'Adresse 2', '10000', 'AC', '2022-01-02')
@@ -114,6 +114,18 @@ VALUES
 (3, 'Entité Physique 8', '1008', 'Adresse 8', '30000', 'PR', '2022-01-08')
 (9, 'Entité Physique 9', '1009', 'Adresse 9', '30000', 'AC', '2022-01-09')
 (4, 'Entité Physique 10', '1010', 'Adresse 10', '40000', 'KO', '2022-01-10')
+INSERT INTO contrat ( id_entite_physique, numero_contrat, statut_contrat, version_contrat, type_contrat, frequence_facturation, date_creation, date_demarrage)
+values
+(1, 123, 'AC', 1, 'PREPAID', 'ANNU', '2022-01-01', '2022-02-01')
+(2, 123, 'AC', 2, 'POSTPAID', 'MENS', '2022-01-02', '2022-03-01')
+(3, 789, 'KO', 1, 'PREPAID', 'ANNU', '2022-01-03', '2022-04-01')
+(4, 234, 'AC', 2, 'PREPAID', 'MENS', '2022-01-04', '2022-05-01')
+(5, 234, 'KO', 3, 'PREPAID', 'ANNU', '2022-01-05', '2022-06-01')
+(6, 890, 'KO', 1, 'PREPAID', 'MENS', '2022-01-06', '2022-07-01')
+(7, 345, 'AC', 1, 'POSTPAID', 'ANNU', '2022-01-07', '2022-08-01')
+(8, 678, 'AC', 1, 'PREPAID', 'MENS', '2022-01-08', '2022-09-01')
+(9, 5678, 'AC', 9, 'PREPAID', 'ANNU', '2022-01-09', '2022-10-01')
+(10, 5678, 'AC', 8, 'POSTPAID', 'MENS', '2022-01-10', '2022-11-01')
 
 
 INSERT INTO contactRole (id_entite_physique, id_contact, role)
