@@ -102,18 +102,19 @@ VALUES
 (3, 'Entité Physique 9', 1009, 'Adresse 9', 30000, 'AC', '2022-01-09'),
 (4, 'Entité Physique 10', 1010, 'Adresse 10', 40000, 'KO', '2022-01-10');
 
-INSERT INTO contrat (numero_contrat, statut_contrat, version_contrat, type_contrat, frequence_facturation, date_creation, date_demarrage) 
+INSERT INTO contrat (id_entite_physique, numero_contrat, statut_contrat, version_contrat, type_contrat, frequence_facturation, date_creation, date_demarrage) 
 VALUES 
-( 123, 'AC', 1, 'POSTPAID', 'ANNU', '2022-01-01', '2022-02-01'),
-( 123, 'AC', 2, 'PREPAID', 'MENS', '2022-01-02', '2022-03-01'),
-( 789, 'KO', 1, 'POSTPAID', 'ANNU', '2022-01-03', '2022-04-01'),
-( 234, 'AC', 2, 'PREPAID', 'MENS', '2022-01-04', '2022-05-01'),
-( 234, 'KO', 3, 'POSTPAID', 'ANNU', '2022-01-05', '2022-06-01'),
-( 890, 'KO', 1, 'PREPAID', 'MENS', '2022-01-06', '2022-07-01'),
-( 345, 'AC', 1, 'POSTPAID', 'ANNU', '2022-01-07', '2022-08-01'),
-( 678, 'AC', 1, 'PREPAID', 'MENS', '2022-01-08', '2022-09-01'),
-( 5678, 'AC', 9, 'POSTPAID', 'ANNU', '2022-01-09', '2022-10-01'),
-( 5678, 'AC', 8, 'PREPAID', 'MENS', '2022-01-10', '2022-11-01');
+(1, 'Entité Physique 1', '1001', 'Adresse 1', '10000', 'AC', '2022-01-01')
+(1, 'Entité Physique 2', '1002', 'Adresse 2', '10000', 'AC', '2022-01-02')
+(3, 'Entité Physique 3', '1003', 'Adresse 3', '10000', 'KO', '2022-01-03')
+(2, 'Entité Physique 4', '1004', 'Adresse 4', '20000', 'PR', '2022-01-04')
+(5, 'Entité Physique 5', '1005', 'Adresse 5', '20000', 'AC', '2022-01-05')
+(2, 'Entité Physique 6', '1006', 'Adresse 6', '20000', 'AC', '2022-01-06')
+(7, 'Entité Physique 7', '1007', 'Adresse 7', '30000', 'AC', '2022-01-07')
+(3, 'Entité Physique 8', '1008', 'Adresse 8', '30000', 'PR', '2022-01-08')
+(9, 'Entité Physique 9', '1009', 'Adresse 9', '30000', 'AC', '2022-01-09')
+(4, 'Entité Physique 10', '1010', 'Adresse 10', '40000', 'KO', '2022-01-10')
+
 
 INSERT INTO contactRole (id_entite_physique, id_contact, role)
 VALUES 
@@ -140,6 +141,7 @@ INSERT INTO article (id_contrat, libelle, montant, remise, devise, date_creation
 (5, 'Article 9', 500.00, 0.00, 'MAD', '2022-01-05'),
 (5, 'Article 10', 250.00, 25.00, 'MAD', '2022-01-05');
 
+
 ALTER TABLE article
 ADD prix_facture DECIMAL(10,1);
 
@@ -148,13 +150,13 @@ UPDATE article
 set prix_facture = montant - remise;
 
 drop TRIGGER if EXISTS delete_cascading;
-drop TRIGGER if EXISTS delete_cascading;
+drop TRIGGER if EXISTS DELETE_cascading_onPhis;
 DELIMITER //
 CREATE TRIGGER delete_cascading before DELETE
 ON entitysociale 
 for EACH ROW
 BEGIN
- DELETE  FROM entityphisique where old.id_entite_social=entityphisique.id_entite_social;
+ DELETE  FROM entitephysique where old.id_entite_social=entitephysique.id_entite_social;
 END //
 DELIMITER ;
 DELIMITER //

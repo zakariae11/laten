@@ -5,7 +5,12 @@ Select Entity Physique
 @endsection
 @section('content')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
+<div style="margin-bottom: 10px;">
+    <form action="/" method="get">
+        @csrf
+        <button type="submit" class="btn btn-success">Home</button>
+    </form>
+</div>
 
 <div>
     <form action="insertentityphysique" method="get">
@@ -38,9 +43,9 @@ Select Entity Physique
         <td>{{$ep -> status_ep}}</td>
         <td>{{$ep -> date_creation}}</td>
         <td class="btn-group">
-                <a href="{{ route('updateentityphysique.submit', $ep->id_entite_physique) }}" class="btn btn-success">Modifier</a>
-                <a href="{{ route('deleteentityphysique.submit', $ep->id_entite_physique) }}" class="btn btn-danger">Supprimer</a>
-                <a href="{{ route('entityPhysique.details', $ep->id_entite_physique) }}" class="btn btn-info">Details</a>
+            <a href="{{ route('updateentityphysique.submit', $ep->id_entite_physique) }}" class="btn btn-success">Modifier</a>
+            <a href="{{ route('deleteentityphysique.submit', $ep->id_entite_physique) }}" class="btn btn-danger">Supprimer</a>
+            <a href="{{ route('entityPhysique.details', $ep->id_entite_physique) }}" class="btn btn-info">Details</a>
         </td>
     </tr>
     @endforeach

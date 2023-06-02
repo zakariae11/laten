@@ -6,14 +6,19 @@ Client Informations
 @section('content')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 @if (session('success_message'))
-    <div class="alert alert-success">
-        {{ session('success_message') }}
-    </div>
+<div class="alert alert-success">
+    {{ session('success_message') }}
+</div>
 @endif
-
+<div style="margin-bottom: 10px;">
+    <form action="/" method="get">
+        @csrf
+        <button type="submit" class="btn btn-success">Home</button>
+    </form>
+</div>
 <h1>Client sans remises et avec contrat prepaid</h1>
 @if ($informations->isEmpty())
-    <p style="text-align: center; color: red; font-size: 24px;">No client information found.</p>
+<p style="text-align: center; color: red; font-size: 24px;">No client information found.</p>
 @else
 
 <table class="table table-striped table-hover">
@@ -53,7 +58,7 @@ Client Informations
         <td>{{$info->date_creation}}</td>
         <td>{{$info->date_demarrage}}</td>
         <td class="btn btn-group btn-block">
-            <a href="{{ route('increaseRemise', $info->id_entite_physique) }}" class="btn btn-success">Update</a>
+            <a href="{{ route('increaseRemise', $info->id_entite_physique) }}" class="btn btn-success">Modifier</a>
         </td>
     </tr>
     @endforeach
